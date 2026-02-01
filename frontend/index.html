@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simple POS Inventory</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: center; }
+    .low-stock { background-color: #ffcccc; font-weight: bold; }
+  </style>
+  <style>
+    .low-stock {
+      background-color: #ffe5e5;
+    }
+  
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+  </style>
+
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    /* ✅ Fix for long item names */
+    .item-name {
+    max-width: 260px;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.3;
+    }
+
+    .low-stock {
+      background-color: #ffe0e0;
+      font-weight: bold;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <h1>POS Inventory System</h1>
+
+  <h2>Add Item</h2>
+  <input id="name" placeholder="Item name" />
+  <input id="price" type="number" placeholder="Price" />
+  <input id="quantity" type="number" placeholder="Quantity" />
+  <input id="minimumQuantity" type="number" placeholder="Min quantity" />
+  <button onclick="addItem()">Add Item</button>
+  <div id="errorBox" style="color: red; margin-top: 10px;"></div>
+
+  <h2>Inventory</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Min</th>
+        <th>Status</th>
+        <th>Sell</th>
+        <th>Restock</th>
+      </tr>
+    </thead>
+    <tbody id="inventory"></tbody>
+  </table>
+
+  <h2>Sales History</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Sale ID</th>
+        <th>Item Name</th>
+        <th>Quantity Sold</th>
+        <th>Price at Sale</th>
+       <th>Sold At</th>
+     </tr>
+    </thead>
+  <tbody id="salesHistory"></tbody>
+  </table>
+
+  <script src="app.js"></script>
+</body>
+</html>
